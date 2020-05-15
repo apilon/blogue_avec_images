@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : jeu. 07 mai 2020 à 19:58
+-- Généré le : ven. 15 mai 2020 à 15:19
 -- Version du serveur :  10.3.16-MariaDB
 -- Version de PHP : 7.3.12
 
@@ -35,18 +35,20 @@ CREATE TABLE `articles` (
   `utilisateur_id` int(11) NOT NULL,
   `date` date NOT NULL,
   `texte` text COLLATE utf8_unicode_ci NOT NULL,
-  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `type` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Déchargement des données de la table `articles`
 --
 
-INSERT INTO `articles` (`id`, `titre`, `sous_titre`, `utilisateur_id`, `date`, `texte`, `type`) VALUES
-(1, 'Premier article', 'Premier sous-titre', 1, '2020-01-24', 'Texte du premier article', 'un type'),
-(2, 'Deuxième article', 'Deuxième sous-titre', 1, '2020-02-26', 'Texte du deuxième article', 'un type'),
-(3, 'article ajouté', 's-t ajouté', 2, '2020-03-30', 'texte ajouté', 'PHP'),
-(4, 'Sans commentaire', 'Nouvelle fonctionnalité sans commentaire', 2, '2020-04-12', 'Article-test pour la nouvelle fonctionnalité indiquant qu\'un article est sans commentaire', '');
+INSERT INTO `articles` (`id`, `titre`, `sous_titre`, `utilisateur_id`, `date`, `texte`, `type`, `image`) VALUES
+(1, 'Premier article', 'Premier sous-titre', 1, '2020-01-24', 'Texte du premier article', 'un type', ''),
+(2, 'Deuxième article', 'Deuxième sous-titre', 1, '2020-02-26', 'Texte du deuxième article', 'un type', ''),
+(3, 'article ajouté', 's-t ajouté', 2, '2020-03-30', 'texte ajouté', 'PHP', ''),
+(4, 'Sans commentaire', 'Nouvelle fonctionnalité sans commentaire', 2, '2020-04-12', 'Article-test pour la nouvelle fonctionnalité indiquant qu\'un article est sans commentaire', '', ''),
+(5, 'Avec image?', 'Test image', 2, '2020-05-15', 'Article avec une image', 'sidecar', 'vw-sidebus.jpg');
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,7 @@ INSERT INTO `commentaires` (`id`, `article_id`, `date`, `auteur`, `titre`, `text
 (10, 2, '2020-02-01', 'Vous', 'Votre commentaire', 'Le texte de votre commentaire', 0, 1),
 (23, 1, '2020-03-12', 'Toi', 'Ton commentaire', 'Le texte de ton commentaire', 1, 0),
 (29, 2, '2020-03-12', 'a@b.c', 'Test de courriel', 'commentaire d\'un auteur avec courriel', 1, 0),
-(30, 3, '2020-03-30', 'a@b.c', 'courriel valide', 'test du courriel', 0, 1);
+(30, 3, '2020-03-30', 'a@b.c', 'courriel valide', 'test du courriel', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -176,7 +178,7 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `commentaires`
